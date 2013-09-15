@@ -3,21 +3,13 @@
 #reader(lib "htdp-beginner-reader.ss" "lang")((modname |9|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
 (require rackunit)
 (require rackunit/text-ui)
-;; remainder : Number Number -> Number
+;; remainder : integer integer -> integer
 ;; Returns the remainder when dividing the arguments.
 (string-append "Remainder")
 (remainder 7 2)
 
 (remainder -17 3)
 
-;; modulo : Number Number -> Number
-;; Returns the quotient "q" with the sign same as 2nd argument where,
-;; 1) (abs q) is between 0 (inclusive) and (abs m) (exclusive), and
-;; 2) the difference between q and (- n (* m (quotient n m))) is a multiple of m.
-(string-append "Modulo")
-(modulo 6 2)
-
-(modulo 10.0 -3)
 
 ;; Predicate even? => Checks whether the number is even or not
 ;; check-even? : Number -> Boolean
@@ -29,7 +21,7 @@
 
 (define (check-even? value)
   (cond
-    [(= (modulo value 2) 0) true ]
+    [(= (remainder value 2) 0) true ]
     [else false]))
 
 ;; Tests :
